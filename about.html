@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Airy Peralta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4A5D23;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #708238;
+        }
+
+        nav a.active {
+            color: #708238;
+            border-bottom: 2px solid #708238;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #4A5D23;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .about-content h2 {
+            color: #4A5D23;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .profile-photo {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e8ede5 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #708238;
+            font-size: 1.5em;
+            font-weight: 600;
+            border: 3px dashed #708238;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .profile-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <h1>About Me</h1>
+            
+            <div class="profile-section">
+                <div class="profile-photo">
+                    📸 Your Photo
+                </div>
+                <div>
+                    <h2 style="margin-top: 0;">Airy Peralta</h2>
+                    <p style="font-size: 1.2em; color: #708238; margin-bottom: 20px;">Ecologist | Climate Researcher | Pika Research Project</p>
+                    <p>Born and raised in Mexico, currently living in Colorado and participating in the Pika Research Project at the University of Colorado Boulder.</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h2>My Journey</h2>
+                <p>My path to ecology began in Mexico, where I developed a deep connection with nature and a curiosity about the intricate relationships between organisms and their environments. This early passion led me to pursue research in climate science and wildlife ecology.</p>
+
+                <h2>Current Research</h2>
+                <p>I focus on understanding how microclimatic temperatures affect ecological systems, particularly in alpine environments. My work at the University of Colorado Boulder involves the Pika Research Project, where I study these small mammals that serve as indicators of climate change.</p>
+                
+                <p>At the intersection of field ecology and computational science, I use statistical modeling and data analysis to understand climate impacts on wildlife habitats. Through projects studying talus slopes and pika territories, I aim to contribute to our understanding of how small-scale temperature variations influence species distribution and habitat suitability in a changing climate.</p>
+
+                <h2>Research Interests</h2>
+                <p>My work spans several interconnected areas: microclimatic temperature modeling, alpine ecosystem dynamics, climate change impacts on wildlife, statistical analysis in ecology, and community-based conservation. Each project builds on my commitment to understanding and preserving mountain ecosystems.</p>
+
+                <h2>Philosophy</h2>
+                <p>I believe that understanding the smallest details of how organisms interact with their thermal environment can reveal broader patterns about ecosystem resilience and adaptation to climate change. Field work grounds my research in reality, while computational tools allow me to see patterns across space and time.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Airy Peralta. All rights reserved.</p>
+    </footer>
+</body>
+</html>
