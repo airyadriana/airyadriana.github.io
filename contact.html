@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Airy Peralta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4A5D23;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #708238;
+        }
+
+        nav a.active {
+            color: #708238;
+            border-bottom: 2px solid #708238;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #4A5D23;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ede5 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #708238;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h2 {
+            color: #4A5D23;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #708238;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .contact-link:hover {
+            background: #4A5D23;
+        }
+
+        .collaboration {
+            max-width: 800px;
+            margin: 60px auto 0 auto;
+            padding: 40px;
+            background: linear-gradient(135deg, #e8ede5 0%, #f5f7fa 100%);
+            border-radius: 15px;
+            border-left: 5px solid #708238;
+        }
+
+        .collaboration h2 {
+            color: #4A5D23;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .collaboration p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <h1>Get in Touch</h1>
+            <p class="intro-text">
+                Interested in collaboration, have questions about my research, or want to discuss ecology and climate science? I'd love to hear from you!
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h2>Email</h2>
+                    <p>For general inquiries, research questions, or collaboration opportunities</p>
+                    <a href="mailto:your.email@example.com" class="contact-link">Send Email</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h2>LinkedIn</h2>
+                    <p>Connect with me professionally and stay updated on my work</p>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link">View Profile</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h2>GitHub</h2>
+                    <p>Explore my code, contribute to projects, or report issues</p>
+                    <a href="https://github.com/airyadriana" class="contact-link">Visit GitHub</a>
+                </div>
+            </div>
+
+            <div class="collaboration">
+                <h2>Research Collaboration</h2>
+                <p>I'm always interested in collaborative research opportunities, particularly in areas related to:</p>
+                <p>• Microclimatic temperature modeling in alpine ecosystems<br>
+                • Climate change impacts on mountain wildlife<br>
+• Community-based conservation initiatives<br>
+                • Statistical ecology and data analysis</p>
+                <p>If you're working on related topics or have ideas for collaboration, please reach out!</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Airy Peralta. All rights reserved.</p>
+    </footer>
+</body>
+</html>
