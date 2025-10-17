@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Airy Peralta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4A5D23;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #708238;
+        }
+
+        nav a.active {
+            color: #708238;
+            border-bottom: 2px solid #708238;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #4A5D23;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ede5 100%);
+            padding: 35px;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #708238;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            color: #4A5D23;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .project-card p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: #708238;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #708238;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            background: #4A5D23;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <h1>Research Projects</h1>
+            <p class="intro-text">
+                Exploring microclimatic patterns and their ecological impacts through field research and computational modeling
+            </p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>microTemp_talusSlopes</h3>
+                    <div class="project-meta">
+                        <span class="meta-tag">R</span>
+                        <span class="meta-tag">Modeling</span>
+                        <span class="meta-tag">Field Data</span>
+                    </div>
+                    <p>A comprehensive model to predict microclimatic temperatures inside talus slopes. This project combines extensive field measurements with statistical modeling in R to understand temperature dynamics in rocky alpine habitats.</p>
+                    <p><strong>Key Focus:</strong> Understanding how talus slopes create thermal refugia for alpine species in a changing climate.</p>
+                    <a href="https://github.com/airyadriana/microTemp_talusSlopes" class="project-link">View on GitHub</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>microTemp_pikaTerritories</h3>
+                    <div class="project-meta">
+                        <span class="meta-tag">R</span>
+                        <span class="meta-tag">Climate Data</span>
+                        <span class="meta-tag">Wildlife</span>
+                    </div>
+                    <p>Analysis of microclimatic temperature patterns in occupied versus unoccupied pika territories in Emerald Lake, Montana, spanning 2021-2024.</p>
+                    <p><strong>Key Focus:</strong> Identifying thermal characteristics that determine habitat suitability for American pikas, a climate-sensitive alpine mammal.</p>
+                    <a href="https://github.com/airyadriana/microTemp_pikaTerritories" class="project-link">View on GitHub</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Friends of Coal Creek (FoCC)</h3>
+                    <div class="project-meta">
+                        <span class="meta-tag">Community Science</span>
+                        <span class="meta-tag">Conservation</span>
+                    </div>
+                    <p>Community-based environmental project focusing on Coal Creek watershed conservation and monitoring. Engaging local stakeholders in ecological research and preservation efforts.</p>
+                    <p><strong>Key Focus:</strong> Bridging scientific research with community engagement for watershed protection.</p>
+                    <a href="https://github.com/airyadriana/FoCC" class="project-link">View on GitHub</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Additional Research</h3>
+                    <div class="project-meta">
+                        <span class="meta-tag">GitHub</span>
+                        <span class="meta-tag">Collaborations</span>
+                    </div>
+                    <p>Explore my complete portfolio of research projects, data visualizations, and collaborative work. My GitHub profile contains additional analyses, code repositories, and ongoing research initiatives.</p>
+                    <a href="https://github.com/airyadriana" class="project-link">View All Projects on GitHub</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Airy Peralta. All rights reserved.</p>
+    </footer>
+</body>
+</html>
