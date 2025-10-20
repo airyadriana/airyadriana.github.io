@@ -12,17 +12,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
             min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         nav {
@@ -41,105 +35,228 @@
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         nav a {
             text-decoration: none;
-            color: #667eea;
+            color: #4A5D23;
             font-weight: 600;
             transition: color 0.3s;
+            font-size: 1.1em;
         }
 
         nav a:hover {
-            color: #764ba2;
+            color: #708238;
         }
 
-        .content {
+        nav a.active {
+            color: #708238;
+            border-bottom: 2px solid #708238;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
             background: white;
-            margin: 40px auto;
             padding: 60px 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 3.5em;
             color: #4A5D23;
-            text-align: center;
             margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
         }
 
         .intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2em;
             color: #666;
+            font-style: italic;
+            line-height: 1.8;
         }
 
-        .project-card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+        /* Project Section */
+        .project-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            margin-bottom: 80px;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .project-card h3 {
+        .project-title {
             color: #4A5D23;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            text-align: center;
+            border-bottom: 3px solid #708238;
+            padding-bottom: 15px;
+        }
+
+        .project-intro {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .project-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            justify-content: center;
         }
 
-        .meta-tag {
-            background: #667eea;
+        .meta-badge {
+            background: #708238;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
             font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            box-shadow: 0 2px 8px rgba(112, 130, 56, 0.3);
         }
 
-        .project-card p {
+        /* Photo Gallery within each project */
+        .photo-gallery {
+            display: grid;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .photo-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .photo-frame {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #e8ede5 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 8px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 1.5em;
+            color: #708238;
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-caption {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #4A5D23;
             margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+
+        .photo-description {
+            font-size: 1.05em;
             line-height: 1.8;
+            color: #555;
+        }
+
+        /* Two-column layout for side-by-side photos */
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
 
         .project-link {
             display: inline-block;
             background: #4A5D23;
             color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 15px 35px;
+            border-radius: 30px;
             text-decoration: none;
-            transition: background 0.3s;
-            margin-top: 10px;
+            transition: all 0.3s;
+            margin-top: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(74, 93, 35, 0.3);
         }
 
         .project-link:hover {
-            background: #667eea;
+            background: #708238;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 93, 35, 0.4);
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         @media (max-width: 768px) {
-            .content {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .page-header {
+                padding: 40px 20px;
+            }
+
+            .project-section {
                 padding: 30px 20px;
             }
 
-            h1 {
-                font-size: 2em;
+            .project-title {
+                font-size: 1.8em;
+            }
+
+            .photo-grid-2 {
+                grid-template-columns: 1fr;
             }
 
             nav ul {
@@ -154,35 +271,106 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="community.html">Community Engagement</a></li>
+            <li><a href="community.html" class="active">Community Engagement</a></li>
             <li><a href="skills.html">Skills</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <div class="content">
+        <div class="page-header">
             <h1>Community Engagement</h1>
             <p class="intro">
-                Beyond formal research, I'm committed to making science accessible and engaging communities in conservation action. These projects combine hands-on stewardship with spatial analysis to connect people with the ecosystems around them.
+                Beyond formal research, I'm committed to making science accessible and engaging communities in conservation action. These stories combine hands-on stewardship with spatial analysis to connect people with the ecosystems around them.
             </p>
+        </div>
 
-            <!-- Urban Native Gardens Project -->
-            <div class="project-card">
-                <h3>Urban Native Gardens and Habitat Connectivity Mapping</h3>
-                <div class="project-meta">
-                    <span class="meta-tag">Community Science</span>
-                    <span class="meta-tag">Urban Ecology</span>
-                    <span class="meta-tag">GIS Mapping</span>
-                </div>
-                <p>Community-led conservation combining hands-on native pollinator garden installations with spatial analysis for Friends of Coal Creek. I lead garden projects within my homeowners association while mapping certified gardens throughout the Coal Creek watershed to understand how residential native plantings create habitat connectivity.</p>
-                <p><strong>Key Contributions:</strong> Active participant in the Pollinator City certification initiative, developing spatial tools that quantify how native gardens form stepping-stone habitat networks for urban wildlife in suburban landscapes.</p>
-                <a href="https://github.com/airyadriana/FoCC" class="project-link">View on GitHub</a>
+        <!-- PROJECT 1: Urban Native Gardens -->
+        <div class="project-section">
+            <h2 class="project-title">Urban Native Gardens & Habitat Connectivity</h2>
+            
+            <div class="project-meta">
+                <span class="meta-badge">Community Science</span>
+                <span class="meta-badge">Urban Ecology</span>
+                <span class="meta-badge">GIS Mapping</span>
             </div>
 
-            <!-- Add more community projects here as they develop -->
+            <p class="project-intro">
+                Community-led conservation combining hands-on native pollinator garden installations with spatial analysis for Friends of Coal Creek. I lead garden projects within my homeowners association while mapping certified gardens throughout the Coal Creek watershed.
+            </p>
 
+            <!-- Photo Gallery for this project -->
+            <div class="photo-gallery">
+                
+                <!-- Photo 1 -->
+                <div class="photo-item">
+                    <div class="photo-frame">
+                        📷 Garden Installation
+                    </div>
+                    <h3 class="photo-caption">Community Native Garden Installation</h3>
+                    <p class="photo-description">
+                        Volunteers planting native wildflowers and grasses in the Coal Creek watershed. These gardens provide critical nectar and host plants for local pollinators including native bees, butterflies, and hummingbirds. Each garden installation is documented and added to our connectivity mapping project.
+                    </p>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-item">
+                    <div class="photo-frame">
+                        🗺️ Habitat Connectivity Map
+                    </div>
+                    <h3 class="photo-caption">GIS Analysis of Garden Networks</h3>
+                    <p class="photo-description">
+                        Spatial analysis showing certified native gardens throughout the Coal Creek watershed. Each point represents a Pollinator City certified garden, creating stepping-stone habitat corridors that allow wildlife to move through suburban landscapes. Distance analysis reveals which neighborhoods have the strongest connectivity and where future gardens would have the greatest conservation impact.
+                    </p>
+                </div>
+
+                <!-- Photos 3 & 4 - Side by side -->
+                <div class="photo-grid-2">
+                    <div class="photo-item">
+                        <div class="photo-frame">
+                            🌸 Before
+                        </div>
+                        <h3 class="photo-caption">Before: Traditional Lawn</h3>
+                        <p class="photo-description">
+                            A typical suburban lawn dominated by non-native Kentucky bluegrass. While aesthetically pleasing to some, these monocultures provide minimal value for native wildlife and require significant water, fertilizer, and maintenance.
+                        </p>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <div class="photo-frame">
+                            🦋 After
+                        </div>
+                        <h3 class="photo-caption">After: Native Pollinator Garden</h3>
+                        <p class="photo-description">
+                            The same space transformed with native wildflowers, grasses, and shrubs. Within months, the garden attracted 15+ butterfly species, native bees, and foraging birds. Native plants are drought-tolerant and require minimal maintenance once established.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="photo-item">
+                    <div class="photo-frame">
+                        📊 Data Dashboard
+                    </div>
+                    <h3 class="photo-caption">Pollinator City Tracking Dashboard</h3>
+                    <p class="photo-description">
+                        Interactive ArcGIS dashboard tracking certification progress across the watershed. The tool allows volunteers and city planners to visualize garden density, identify gaps in habitat connectivity, and prioritize neighborhoods for future outreach efforts. Data includes garden size, plant species lists, and maintenance schedules.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="link-container">
+                <a href="https://github.com/airyadriana/FoCC" class="project-link">View Project on GitHub</a>
+            </div>
         </div>
+
+        <!-- Add more project sections here as you develop more community projects -->
+
     </div>
+
+    <footer>
+        <p>&copy; 2025 Airy Peralta. All rights reserved.</p>
+    </footer>
 </body>
 </html>
