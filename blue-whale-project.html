@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Whale Behavioral Monitoring - Airy Peralta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4A5D23;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #708238;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4A5D23;
+            margin-bottom: 10px;
+        }
+
+        .project-subtitle {
+            color: #708238;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: #708238;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Photo Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 40px 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #e8ede5 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #708238;
+            border: 3px dashed #708238;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #4A5D23;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-button:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-button.prev {
+            left: 20px;
+        }
+
+        .carousel-button.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #708238;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #4A5D23;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #708238;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .key-findings {
+            background: #f5f7fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #708238;
+            margin: 30px 0;
+        }
+
+        .key-findings h3 {
+            color: #4A5D23;
+            margin-bottom: 15px;
+        }
+
+        .key-findings ul {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
+
+        .key-findings li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .thesis-download {
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .thesis-download h3 {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: white;
+            color: #4A5D23;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #708238;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #4A5D23;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+
+            .carousel-button.prev {
+                left: 10px;
+            }
+
+            .carousel-button.next {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="community.html">Community Engagement</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <a href="projects.html#blue-whale" class="back-link">← Back to Projects</a>
+            
+            <h1>Blue Whale Behavioral Monitoring from Land-Based Stations</h1>
+            <p class="project-subtitle">Loreto Bay National Park, Baja California Sur, Mexico</p>
+            
+            <div class="meta-info">
+                <span class="meta-tag">2013-2014</span>
+                <span class="meta-tag">Undergraduate Thesis</span>
+                <span class="meta-tag">CICIMAR-IPN</span>
+                <span class="meta-tag">Field Ecology</span>
+            </div>
+
+            <!-- Photo Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo1.jpg" alt="Islote Tijeras observation station"> -->
+                        📸 Photo 1: Observation station on Islote Tijeras
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo2.jpg" alt="Theodolite setup"> -->
+                        📸 Photo 2: Theodolite and field equipment
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo3.jpg" alt="Field camp"> -->
+                        📸 Photo 3: Remote field camp
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo4.jpg" alt="Study area view"> -->
+                        📸 Photo 4: View of study area
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo5.jpg" alt="Blue whale surfacing"> -->
+                        📸 Photo 5: Blue whale blow at sunset
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo6.jpg" alt="Data collection"> -->
+                        📸 Photo 6: Data collection in progress
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="images/blue-whale/photo7.jpg" alt="Team on islet"> -->
+                        📸 Photo 7: Field team
+                    </div>
+                </div>
+                
+                <button class="carousel-button prev" onclick="moveSlide(-1)">‹</button>
+                <button class="carousel-button next" onclick="moveSlide(1)">›</button>
+            </div>
+
+            <div class="carousel-indicators" id="indicators"></div>
+            <p class="photo-caption" id="photoCaption">Field work at Islote Tijeras, 2013-2014</p>
+
+            <div class="section-content">
+                <h2>Project Overview</h2>
+                <p>This undergraduate thesis research established the first land-based theodolite monitoring station for blue whales in Mexico. Working from a remote islet in Loreto Bay National Park, I investigated whether whale-watching and research vessels affected blue whale surface behavior and diving patterns.</p>
+                
+                <p>The project addressed a critical methodological question: does the presence of research boats bias behavioral observations? By simultaneously collecting data from both land-based and boat-based platforms, I could directly compare methods and assess whether our observation approach was influencing what we measured.</p>
+
+                <h2>Field Methods</h2>
+                <p>The research required establishing a complete field camp on Islote Tijeras, a small islet offering panoramic views of the study area. Using a theodolite (a precision surveying instrument), I tracked individual whales and recorded:</p>
+                <ul style="margin-left: 40px; margin-bottom: 20px;">
+                    <li>Surface intervals and dive durations</li>
+                    <li>Number of blows (respirations) per surfacing</li>
+                    <li>Whale positions and movement patterns</li>
+                    <li>Boat presence and proximity</li>
+                </ul>
+                
+                <p>The theodolite connected to a laptop running Pythagoras® software, which calculated precise whale positions in real-time using trigonometry. This approach eliminated the need to approach whales with boats, providing truly non-invasive observations.</p>
+
+                <div class="key-findings">
+                    <h3>🔍 Key Findings</h3>
+                    <ul>
+                        <li><strong>Vertical Avoidance Behavior:</strong> Blue whales in the presence of boats showed significantly longer dive times (6.60 vs 5.11 minutes) and shorter surface intervals (1.11 vs 2.97 minutes)</li>
+                        <li><strong>Reduced Respiratory Rates:</strong> Whales made fewer blows per surfacing when boats were present (4.21 vs 4.85 blows)</li>
+                        <li><strong>Method Validation:</strong> Land-based observations produced behavioral measurements more consistent with satellite telemetry studies than boat-based methods</li>
+                        <li><strong>Observer Effects:</strong> Even research vessels following regulations appeared to influence whale behavior, suggesting the importance of truly non-invasive monitoring approaches</li>
+                    </ul>
+                </div>
+
+                <h2>Research Significance</h2>
+                <p>This work demonstrated a fundamental principle that has guided my research ever since: <em>where we observe from matters as much as what we observe</em>. Just as boat-based observations introduced biases in whale behavior studies, I later discovered in my PhD research that weather station measurements don't represent the microclimates where pikas actually live.</p>
+
+                <p>The research provided quantitative evidence that even well-intentioned research activities can influence the systems we study. This has important implications for:</p>
+                <ul style="margin-left: 40px; margin-bottom: 20px;">
+                    <li>Establishing baseline behavioral data for conservation assessments</li>
+                    <li>Designing whale-watching regulations that minimize disturbance</li>
+                    <li>Choosing appropriate monitoring methods for long-term studies</li>
+                    <li>Correcting abundance estimates that rely on surface time observations</li>
+                </ul>
+
+                <h2>Conservation Context</h2>
+                <p>Loreto Bay National Park is a critical nursery area for blue whales in the Gulf of California. The park has experienced rapid growth in whale-watching tourism, making it essential to understand how these activities affect whale behavior. This research contributed to ongoing discussions about tourism management and marine mammal protection in Mexican waters.</p>
+
+                <h2>Awards & Recognition</h2>
+                <ul style="margin-left: 40px; margin-bottom: 20px;">
+                    <li>Grant funding: Society for Marine Mammalogy</li>
+                    <li>Grant funding: Cetacean Society International</li>
+                    <li>Third place: 2014 Mexican Society of Marine Mammalogy Congress</li>
+                </ul>
+
+                <div class="thesis-download">
+                    <h3>📄 Read the Full Thesis</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Complete methodology, statistical analysis, and detailed results (in Spanish)</p>
+                    <a href="assets/Peralta_2014_BlueWhale_Thesis.pdf" class="download-button" target="_blank">Download PDF (Spanish)</a>
+                </div>
+
+                <h2>Technical Details</h2>
+                <p><strong>Study Period:</strong> February-March 2013<br>
+                <strong>Sample Size:</strong> 44 focal follows, 32 hours of behavioral observations<br>
+                <strong>Analysis:</strong> Bayesian hierarchical modeling in R and WinBUGS<br>
+                <strong>Institution:</strong> Centro Interdisciplinario de Ciencias Marinas (CICIMAR-IPN)<br>
+                <strong>Advisor:</strong> M.C. Geraldine Busquets Vass</p>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Airy Peralta. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const track = document.getElementById('carouselTrack');
+        const indicatorsContainer = document.getElementById('indicators');
+
+        // Photo captions for each slide
+        const captions = [
+            "Observation station setup on Islote Tijeras",
+            "Theodolite equipment for precise whale tracking",
+            "Remote field camp facilities",
+            "Panoramic view of the study area",
+            "Blue whale blow captured at sunset",
+            "Real-time data collection session",
+            "Field research team at the islet"
+        ];
+
+        // Create indicators
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('span');
+            indicator.classList.add('indicator');
+            if (i === 0) indicator.classList.add('active');
+            indicator.onclick = () => goToSlide(i);
+            indicatorsContainer.appendChild(indicator);
+        }
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update caption
+            document.getElementById('photoCaption').textContent = captions[currentSlide];
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-advance carousel every 5 seconds (optional)
+        // setInterval(() => moveSlide(1), 5000);
+    </script>
+</body>
+</html>
