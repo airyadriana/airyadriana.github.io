@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHDV2 Disease Ecology Project - Airy Peralta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4A5D23;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #708238;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4A5D23;
+            margin-bottom: 10px;
+        }
+
+        .project-subtitle {
+            color: #708238;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: #708238;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Photo Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 40px 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #e8ede5 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #708238;
+            border: 3px dashed #708238;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #4A5D23;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-button:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-button.prev {
+            left: 20px;
+        }
+
+        .carousel-button.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #708238;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #4A5D23;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #708238;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .key-questions {
+            background: #f5f7fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #708238;
+            margin: 30px 0;
+        }
+
+        .key-questions h3 {
+            color: #4A5D23;
+            margin-bottom: 15px;
+        }
+
+        .key-questions ul {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
+
+        .key-questions li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .publication-coming-soon {
+            background: linear-gradient(135deg, #708238 0%, #4A5D23 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .publication-coming-soon h3 {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-top: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #708238;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #4A5D23;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+
+            .carousel-button.prev {
+                left: 10px;
+            }
+
+            .carousel-button.next {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="community.html">Community Engagement</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <a href="projects.html" class="back-link">← Back to Projects</a>
+            
+            <h1>Lagomorph Ladders: Disease Spillover Risk in Alpine Habitats</h1>
+            <p class="project-subtitle">Great Sand Dunes National Park and Preserve, Colorado</p>
+            
+            <div class="meta-info">
+                <span class="meta-tag">2022-2023</span>
+                <span class="meta-tag">Disease Ecology</span>
+                <span class="meta-tag">Spatial Modeling</span>
+                <span class="meta-tag">Conservation</span>
+                <span class="meta-tag">GIS</span>
+            </div>
+
+            <!-- Photo Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <!-- <img src="assets/RHDV2_photo_01.jpg" alt="Field site at Great Sand Dunes"> -->
+                        📸 Photo 1: Great Sand Dunes field site
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="assets/RHDV2_photo_02.jpg" alt="Pika habitat survey"> -->
+                        📸 Photo 2: Surveying pika habitat
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="assets/RHDV2_photo_03.jpg" alt="Alpine talus slopes"> -->
+                        📸 Photo 3: Alpine talus slope habitat
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="assets/RHDV2_photo_04.jpg" alt="Field team at work"> -->
+                        📸 Photo 4: Field research team
+                    </div>
+                    <div class="carousel-slide">
+                        <!-- <img src="assets/RHDV2_photo_05.jpg" alt="American pika"> -->
+                        📸 Photo 5: American pika in natural habitat
+                    </div>
+                </div>
+                
+                <button class="carousel-button prev" onclick="moveSlide(-1)">‹</button>
+                <button class="carousel-button next" onclick="moveSlide(1)">›</button>
+            </div>
+
+            <div class="carousel-indicators" id="indicators"></div>
+            <p class="photo-caption" id="photoCaption">Field work at Great Sand Dunes National Park, 2022-2023</p>
+
+            <div class="section-content">
+                <h2>Project Overview</h2>
+                <p>Emerging infectious diseases pose significant threats to wildlife populations, particularly for climate-sensitive species already facing environmental challenges. This project investigated the potential for Rabbit Hemorrhagic Disease Virus type 2 (RHDV2) to spread from lower-elevation rabbits and hares up into alpine American pika populations at Great Sand Dunes National Park and Preserve.</p>
+                
+                <p>The research addressed a critical conservation question: could rabbits and hares act as "ladder fuels"—ecological bridges that allow disease to reach higher-elevation species? Understanding these transmission pathways is essential for protecting alpine mammals already threatened by climate change.</p>
+
+                <div class="key-questions">
+                    <h3>🔬 Research Questions</h3>
+                    <ul>
+                        <li>Where do pika and leporid (rabbit/hare) habitats overlap spatially?</li>
+                        <li>What are the patterns of habitat use across elevation gradients?</li>
+                        <li>Which areas present the highest risk for disease transmission between species?</li>
+                        <li>How might disease spread compound existing climate-mediated threats to pikas?</li>
+                    </ul>
+                </div>
+
+                <h2>Study System: RHDV2</h2>
+                <p>Rabbit Hemorrhagic Disease Virus type 2 (RHDV2) is a highly contagious and often fatal calicivirus that affects lagomorphs. First detected in North America in 2018, RHDV2 has spread rapidly across the western United States, causing significant mortality in wild rabbit and hare populations.</p>
+                
+                <p>While American pikas are susceptible to RHDV2, their isolated alpine habitats have historically provided natural protection from lowland diseases. However, if lower-elevation leporids serve as disease reservoirs in overlapping habitats, they could facilitate transmission to pika populations—creating an additional stressor for a species already constrained by climate warming.</p>
+
+                <h2>Field Methods</h2>
+                <p>During the summer field season, our team conducted systematic surveys across Great Sand Dunes National Park and Preserve, spanning elevation gradients from montane forests through subalpine zones to alpine talus fields. We established 115 survey plots stratified across habitat types and elevations to characterize the spatial distribution of both pika and leporid populations.</p>
+
+                <p>At each plot, we recorded:</p>
+                <ul style="margin-left: 40px; margin-bottom: 20px;">
+                    <li>Species presence/absence through visual surveys and sign detection</li>
+                    <li>Habitat characteristics (vegetation, substrate, elevation)</li>
+                    <li>GPS coordinates for spatial modeling</li>
+                    <li>Environmental variables relevant to disease transmission</li>
+                </ul>
+
+                <h2>Analytical Approach</h2>
+                <p>We used spatial modeling techniques in GIS to map the distribution patterns of pika and leporid habitat use. By analyzing occupancy patterns across elevation gradients and habitat types, we identified areas where the two groups' ranges overlap—potential "contact zones" where disease transmission could occur.</p>
+
+                <p>Our models incorporated:</p>
+                <ul style="margin-left: 40px; margin-bottom: 20px;">
+                    <li>Occupancy detection data for both taxonomic groups</li>
+                    <li>Elevation and habitat type variables</li>
+                    <li>Spatial autocorrelation patterns</li>
+                    <li>Movement corridor analysis</li>
+                </ul>
+
+                <h2>Conservation Significance</h2>
+                <p>This research provides critical baseline data for understanding how emerging wildlife diseases might compound existing threats to climate-sensitive alpine species. American pikas serve as sentinel species for climate change impacts in mountain ecosystems, and understanding their disease risk profiles is essential for comprehensive conservation planning.</p>
+
+                <p>The "ladder fuel" concept—where intermediate-elevation species facilitate disease transmission between lowland and alpine zones—has broad implications for wildlife disease management in mountainous regions. As climate change pushes species ranges upward, these transmission pathways may become increasingly important.</p>
+
+                <p>By identifying high-risk contact zones, this work enables park managers to implement targeted monitoring strategies and early detection protocols. The methodology also provides a framework for assessing disease spillover risk in other multi-host systems across elevation gradients.</p>
+
+                <h2>Collaborators</h2>
+                <p>This project was conducted in collaboration with the National Park Service, Great Sand Dunes National Park and Preserve, and represents a partnership between academic research and applied conservation management.</p>
+
+                <div class="publication-coming-soon">
+                    <h3>📄 Publication Status</h3>
+                    <p style="color: rgba(255,255,255,0.9);">This research is currently being prepared for publication. Detailed methods, spatial models, and complete findings will be available upon acceptance.</p>
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <p style="margin-top: 20px; font-size: 0.9em; color: rgba(255,255,255,0.8);">Check back for updates on publication status and access to the full manuscript.</p>
+                </div>
+
+                <h2>Project Team</h2>
+                <p><strong>Principal Investigator:</strong> Airy Peralta<br>
+                <strong>Collaborators:</strong> [Add collaborator names]<br>
+                <strong>Funding:</strong> [Add funding sources if applicable]<br>
+                <strong>Field Season:</strong> Summer 2022-2023</p>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Airy Peralta. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const track = document.getElementById('carouselTrack');
+        const indicatorsContainer = document.getElementById('indicators');
+
+        // Photo captions for each slide
+        const captions = [
+            "Survey site at Great Sand Dunes National Park",
+            "Conducting systematic pika habitat surveys",
+            "Alpine talus slope—prime pika habitat",
+            "Field team documenting occupancy patterns",
+            "American pika, a climate-sensitive sentinel species"
+        ];
+
+        // Create indicators
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('span');
+            indicator.classList.add('indicator');
+            if (i === 0) indicator.classList.add('active');
+            indicator.onclick = () => goToSlide(i);
+            indicatorsContainer.appendChild(indicator);
+        }
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update caption
+            document.getElementById('photoCaption').textContent = captions[currentSlide];
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+    </script>
+</body>
+</html>
